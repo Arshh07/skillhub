@@ -1,0 +1,18 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div>
+  <h2>Dashboard</h2>
+  <p>Welcome to your dashboard.</p>
+  <div>
+    <h3>Latest Gigs</h3>
+    <ul>
+      <li th:each="g : ${gigs}">
+        <a th:href="@{/gigs/{id}(id=${g.id})}" th:text="${g.title}">Gig</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

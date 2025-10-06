@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div>
+  <h2>Create Gig</h2>
+  <form th:action="@{/gigs/create}" th:object="${gig}" method="post">
+    <label>Title</label><br/>
+    <input th:field="*{title}" required /><br/>
+    <label>Category</label><br/>
+    <input th:field="*{category}" /><br/>
+    <label>Description</label><br/>
+    <textarea th:field="*{description}" rows="5"></textarea><br/>
+    <label>Price</label><br/>
+    <input th:field="*{price}" type="number" step="0.01" required /><br/>
+    <label>Delivery Days</label><br/>
+    <input th:field="*{deliveryDays}" type="number" /><br/><br/>
+    <button type="submit">Create</button>
+  </form>
+</div>
+</body>
+</html>

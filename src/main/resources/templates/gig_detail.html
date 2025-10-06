@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div>
+  <h2 th:text="${gig.title}">Gig title</h2>
+  <p th:text="${gig.description}"></p>
+  <p>Price: <span th:text="${gig.price}"></span></p>
+  <form th:action="@{/orders/create/{gigId}(gigId=${gig.id})}" method="post">
+    <button type="submit">Order Now</button>
+  </form>
+</div>
+</body>
+</html>

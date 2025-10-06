@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div>
+  <h2>My Orders</h2>
+  <div th:if="${orders != null}">
+    <table>
+      <tr><th>ID</th><th>Gig</th><th>Client</th><th>Freelancer</th><th>Amount</th><th>Status</th></tr>
+      <tr th:each="o : ${orders}">
+        <td th:text="${o.id}"></td>
+        <td th:text="${o.gig != null ? o.gig.title : 'N/A'}"></td>
+        <td th:text="${o.client != null ? o.client.name : 'N/A'}"></td>
+        <td th:text="${o.freelancer != null ? o.freelancer.name : 'N/A'}"></td>
+        <td th:text="${o.amount}"></td>
+        <td th:text="${o.status}"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+</body>
+</html>

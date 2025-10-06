@@ -1,0 +1,15 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div>
+  <h2>Gigs</h2>
+  <div th:if="${error}" th:text="${error}" style="color:red"></div>
+  <div th:each="g : ${gigs}">
+    <h3><a th:href="@{/gigs/{id}(id=${g.id})}" th:text="${g.title}">Gig</a></h3>
+    <p th:text="${g.description}">desc</p>
+    <p>Price: <span th:text="${g.price}"></span></p>
+  </div>
+</div>
+</body>
+</html>

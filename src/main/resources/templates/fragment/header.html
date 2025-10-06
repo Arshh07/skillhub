@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>SkillHub</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<nav>
+  <a href="/" class="brand">SkillHub</a>
+  <a href="/gigs">Gigs</a>
+  <a href="/gigs/create">Create Gig</a>
+  <a href="/dashboard">Dashboard</a>
+  <span style="float:right;">
+    <span th:if="${#httpServletRequest.getSession(false)?.getAttribute('user') == null}">
+      <a href="/login">Login</a> | <a href="/register">Register</a>
+    </span>
+    <span th:if="${#httpServletRequest.getSession(false)?.getAttribute('user') != null}">
+      <a th:href="@{'/logout'}">Logout</a>
+    </span>
+  </span>
+</nav>
+<hr/>
+</body>
+</html>

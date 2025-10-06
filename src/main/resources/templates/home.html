@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head"></head>
+<body>
+<div>
+  <h1>Welcome to SkillHub</h1>
+  <p>Explore gigs from freelancers</p>
+
+  <form action="/gigs" method="get">
+    <input type="text" name="q" placeholder="Search gigs...">
+    <button type="submit">Search</button>
+  </form>
+
+  <div th:if="${gigs != null}">
+    <ul>
+      <li th:each="g : ${gigs}">
+        <a th:href="@{/gigs/{id}(id=${g.id})}" th:text="${g.title}">Gig title</a>
+        — <span th:text="${g.price}">price</span>
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>
